@@ -1,4 +1,4 @@
-# HVUE Architecture for Forest Segmentation
+# HVUE Architecture for Image Segmentation
 
 ## Background
 Implementation of the Hybrid Vision U-Net Ensemble (HVUE) architecture adapted for forest cover segmentation from satellite imagery. The architecture combines U-Net with ResNet50 and Vision Transformer (ViT) feature extractors to achieve robust semantic segmentation.
