@@ -64,24 +64,7 @@ ResNet50      Bottleneck        ViT-Tiny
 }
 ```
 
-## Technical Requirements
-
-### Dependencies
-```
-torch >= 2.0
-torchvision
-timm (PyTorch Image Models)
-albumentations
-opencv-python (cv2)
-numpy
-pandas
-tqdm
-```
-
-### Hardware
-- **GPU**: CUDA-capable GPU recommended (tested on Kaggle GPU)
-- **Memory**: Minimum 8GB GPU memory
-- **Batch Size**: 2 (memory-optimized for stability)
+## Implementation Information
 
 ### Training Configuration
 - **Optimizer**: Adam (lr=0.0001)
@@ -134,25 +117,3 @@ The model reports comprehensive segmentation metrics:
 2. **NaN Handling**: Automatic detection and skipping of batches with NaN values
 3. **Checkpoint Saving**: Model automatically saves when validation loss improves
 4. **Multi-threading**: Uses 2 workers for data loading with prefetching on GPU
-
-## Adaptation for Your Dataset
-
-To test on your dataset:
-1. Update `image_paths` and `mask_paths` to your data directories
-2. Ensure metadata CSV has `image` and `mask` columns
-3. Verify image dimensions (current: 256×256)
-4. Adjust `num_classes` if multi-class segmentation needed
-5. Modify `train_ratio` for different train/validation splits
-
-## Performance Considerations
-
-- **ResNet50 Upgrade**: Better feature extraction than original DenseNet121
-- **Pretrained Weights**: Transfer learning from ImageNet improves convergence
-- **Feature Fusion**: Multi-scale features from CNN (ResNet) + global context (ViT)
-- **Skip Connections**: Preserve fine-grained spatial details
-
----
-
-**Implementation Date**: 2024  
-**Framework**: PyTorch 2.0+  
-**Original HVUE Paper**: Nature Scientific Reports (2025)
